@@ -1,4 +1,4 @@
-%%cu
+//%%cu//(only for google colab
 //Author : Piyush Rajendra Chaudhari
 //Roll No: BECOC311
 #include <stdio.h>
