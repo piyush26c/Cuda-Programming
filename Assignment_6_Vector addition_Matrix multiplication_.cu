@@ -4,7 +4,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <cuda.h>
-#define VECTOR_SIZE 10
+#define VECTOR_SIZE (1 << (VECTOR_SIZE_))   //corresponds to 2 ^VECTOR_SIZE_
+#define VECTOR_SIZE_ 5
 
 __global__ void vectorAddition (long long *vectorA_, long long *vectorB_, long long *vectorC_) {
 	vectorC_[blockIdx.x] = vectorA_[blockIdx.x] + vectorB_[blockIdx.x];
