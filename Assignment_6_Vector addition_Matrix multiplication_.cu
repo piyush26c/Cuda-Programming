@@ -115,13 +115,14 @@ int main(void) {
 	
 	//by creating multiple blocks with single thread in it.
 	dim3 blocksPerGrid(1, 1, 1);
-	dim3 threadsPerBlock(VECTOR_SIZE, VECTOR_SIZE, 1);
+	dim3 threadsPerBlock(VECTOR_SIZE, 1, 1);
+	/*
 	if (VECTOR_SIZE * VECTOR_SIZE > 512){		
 		threadsPerBlock.x = 512;
         threadsPerBlock.y = 512;
         blocksPerGrid.x = ceil(double(VECTOR_SIZE)/double(threadsPerBlock.x));
         blocksPerGrid.y = ceil(double(VECTOR_SIZE)/double(threadsPerBlock.y));
-    }
+    }*/
 	vectorMatrixMultiplication<<<blocksPerGrid, threadsPerBlock>>>(deviceMatrixA, deviceMatrixB, deviceMatrixC);
 	
 	// Copy result back to host
